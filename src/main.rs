@@ -303,9 +303,6 @@ fn update_map(rng: &mut ThreadRng, world: &mut World) {
 
     if world.next_left == world.map[0].0 && rng.gen_range(0..10) >= 7 {
         world.next_left = rng.gen_range(world.next_left.saturating_sub(5)..world.next_left + 5);
-        if world.next_left == 0 {
-            world.next_left = 1;
-        }
         if world.next_left >= world.maxc {
             world.next_left = Wrapping(world.maxc).0 - 1;
         }
